@@ -273,18 +273,18 @@ module.exports = async ({ recordBatch, _session, _logger }) => {
           .set("country", countryCode)
           .addComment("country", "Country was automatically formatted");
       }
+    }
 
-      if (
-        countryCode === "US" &&
-        isNotNil(postalCode) &&
-        postalCode.length < 5
-      ) {
-        const padded = postalCode.padStart(5, "0");
+    if (
+      record.get("country") === "US" &&
+      isNotNil(postalCode) &&
+      postalCode.length < 5
+    ) {
+      const padded = postalCode.padStart(5, "0");
 
-        record
-          .set("postalCode", padded)
-          .addComment("postalCode", "Zipcode was padded with zeroes");
-      }
+      record
+        .set("postalCode", padded)
+        .addComment("postalCode", "Zipcode was padded with zeroes");
     }
   });
 };

@@ -45,7 +45,7 @@ module.exports = async ({ recordBatch, _session, _logger }) => {
 
   if (countries.length === 0) return;
 
-  return recordBatch.records.forEach((record) => {
+  return recordBatch.records.map((record) => {
     const { country: countryName } = record.value;
 
     if (isNotNil(countryName)) {

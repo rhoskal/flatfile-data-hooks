@@ -30,8 +30,8 @@ const fetchCountries = async () => {
   }
 };
 
-const lookup = (countries) => {
-  return (match) => {
+const lookup = (match) => {
+  return (countries) => {
     const found = countries.find(
       (c) => c.country_name.toLowerCase() === match.toLowerCase(),
     );
@@ -49,7 +49,7 @@ module.exports = async ({ recordBatch, _session, _logger }) => {
     const { country: countryName } = record.value;
 
     if (isNotNil(countryName)) {
-      const countryCode = lookup(countries)(countryName);
+      const countryCode = lookup(countryName)(countries);
 
       if (isNotNil(countryCode)) {
         record

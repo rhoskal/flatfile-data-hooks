@@ -22,3 +22,6 @@
 - What if we had a GitHub repo with examples? Easy to keep up to date and easy to show variations of a theme. e.g. 1 date vs multiple dates
 - Better "missing dependency" warning
 - A lot of scrolling up and down when writing Hooks. Code window with is really small. Also, maybe collapse left nav menu.
+- SDK should publush both UMD & ES Module variants. ESM allow for tree shaking
+- What delimeteres are allowed in CSV parsing? Are they in the docs?
+  - By default we work well with: , , | , / , \ , ; , and tab.

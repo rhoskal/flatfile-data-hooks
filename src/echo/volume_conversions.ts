@@ -38,7 +38,7 @@ module.exports = ({ recordBatch, _session, _logger }) => {
       if (isNumber(bidVolume)) {
         record
           .set("Bid_Volume", Math.round(bidVolume) / 100)
-          .set("Annualized_Volume", Math.round(bidVolume) * 2);
+          .set("Annualized_Volume", (Math.round(bidVolume) * 2) / 100);
       }
 
       if (isString(bidVolume)) {
@@ -47,7 +47,7 @@ module.exports = ({ recordBatch, _session, _logger }) => {
 
         record
           .set("Bid_Volume", Math.round(parsed) / 100)
-          .set("Annualized_Volume", Math.round(parsed) * 2);
+          .set("Annualized_Volume", (Math.round(parsed) * 2) / 100);
       }
     }
   });

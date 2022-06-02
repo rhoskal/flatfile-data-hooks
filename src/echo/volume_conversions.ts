@@ -27,8 +27,9 @@ module.exports = ({ recordBatch, _session, _logger }) => {
     const { Bid_Volume: bidVolume } = record.value;
 
     if (isNotNil(bidVolume) && isNumber(bidVolume)) {
-      record.set("Bid_Volume", Math.round(bidVolume));
-      record.set("Annualized_Volume", Math.round(bidVolume) * 2);
+      record
+        .set("Bid_Volume", Math.round(bidVolume))
+        .set("Annualized_Volume", Math.round(bidVolume) * 2);
     }
   });
 }

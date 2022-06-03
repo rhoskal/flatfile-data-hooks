@@ -45,12 +45,16 @@ module.exports = ({ recordBatch, _session, logger }) => {
                 .join(" ")
                 .trim(),
             )
+            .set(
+              "streetAddress2",
+              [parsed.sec_unit_type, parsed.sec_unit_num].join(" ").trim(),
+            )
             .set("city", parsed.city)
             .set("state", parsed.state)
             .set("zipCode", parsed.zip);
         }
-      } catch (_err) {
-        logger.error("Uh oh...");
+      } catch (err) {
+        logger.error("Uh oh...", err);
       }
     }
   });

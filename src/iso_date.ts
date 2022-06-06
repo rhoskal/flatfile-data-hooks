@@ -16,7 +16,7 @@ const isNil = (val) => val === null || val === undefined || val === "";
  */
 const isNotNil = (val) => !isNil(val);
 
-module.exports = async ({ recordBatch, _session, logger }) => {
+module.exports = ({ recordBatch, _session, logger }) => {
   return recordBatch.records.map((record) => {
     const { date } = record.value;
 

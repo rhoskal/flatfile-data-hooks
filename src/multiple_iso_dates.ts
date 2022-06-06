@@ -22,7 +22,7 @@ const FIELDS = {
   // created_at: "createdAt",
 };
 
-module.exports = async ({ recordBatch, _session, logger }) => {
+module.exports = ({ recordBatch, _session, logger }) => {
   return recordBatch.records.map((record) => {
     Object.keys(FIELDS).forEach((field) => {
       const dateValue = record.get(FIELDS[field]);

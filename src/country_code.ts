@@ -261,7 +261,7 @@ const countries = new Map([
   ["Zimbabwe".toLowerCase(), "ZW"],
 ]);
 
-module.exports = async ({ recordBatch, _session, _logger }) => {
+module.exports = ({ recordBatch, _session, _logger }) => {
   return recordBatch.records.map((record) => {
     const { country: countryName, postalCode } = record.value;
 

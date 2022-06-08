@@ -14,6 +14,14 @@
 - Deploying a new version of my Hooks deletes all my test data
 - No warning when leaving un-saved changes
 - Allow ES6 modules?
+- Node v14 upgrade to LTS?
+  - Docs should specify which version our Data Hooks are running in.
+  - Node v14 has different behavior w/ string.replace :(
+- SDK README.md should specify minimum Node version
+- Create a "pre-hook" that is guaranteed to run only once?
+  - E.g. allow developer to peform network request to their API and get a token, then store this for all DH's to access
+- Access to private NPM packages? Allow npmrc to be uploaded?
+- Create "API clients" to provide high level functions for REST calls
 - Expose more information about code environment (Node version, etc.)
 - Can we expose types in a package? I don't know the structure of "record", recordBatch, session, logger, etc.
   - Gives more feeback about error states

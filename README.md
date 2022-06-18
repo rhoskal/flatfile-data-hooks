@@ -5,6 +5,7 @@
 - Should have popup indicating code was copied to clipboard when user clicks copy code button (customers have said this)
 - Deploying reloads the page and causes my position in my code to reset back to defaults
   - Deploying a new version of my Hooks deletes all my test data -- remove pre-loaded test data
+    Alex Rock UI, Nate
 
 # Data Hooks Feedback
 
@@ -26,6 +27,8 @@
 - All available import file encodings should be in the docs
 - Max file sizes for both csv and excel should be in the docs
 - Unify docs (where appropriate) w/ Customer Success
+- REST swagger docs don't show payload to we can see the shape of the response
+- Need more REST endpoints
 
 # Maybes
 

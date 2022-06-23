@@ -14,6 +14,8 @@ const isNil = (val) => val === null || val === undefined || val === "";
  */
 const isNotNil = (val) => !isNil(val);
 
+export const isNumber = (val) => typeof val === "number";
+
 const pipe = (...args) => args.reduce((acc, el) => el(acc));
 
 const clean = (val) => val.trim().replace(/\s/g, "");
@@ -32,7 +34,7 @@ module.exports = ({ recordBatch, _session, _logger }) => {
 
         const parsed = parseFloat(val);
 
-        if (typeof parsed === "number") {
+        if (isNumber(parsed)) {
           return [...acc, val];
         }
       }, []);

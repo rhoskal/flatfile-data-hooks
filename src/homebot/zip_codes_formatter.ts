@@ -14,13 +14,15 @@ const isNil = (val) => val === null || val === undefined || val === "";
  */
 const isNotNil = (val) => !isNil(val);
 
-export const isNumber = (val) => typeof val === "number";
+const isNumber = (val) => typeof val === "number";
 
 const pipe = (...args) => args.reduce((acc, el) => el(acc));
 
 const clean = (val) => val.trim().replace(/\s/g, "");
 
-const parse = (val) => pipe(val, clean);
+const parseFloat_ = (val) => parseFloat(val);
+
+const parse = (val) => pipe(val, parseFloat_);
 
 module.exports = ({ recordBatch, _session, _logger }) => {
   return recordBatch.records.map((record) => {
@@ -32,7 +34,7 @@ module.exports = ({ recordBatch, _session, _logger }) => {
       const zips = cleaned.split("-").reduce((acc, val) => {
         if (val.length !== 5) return acc;
 
-        const parsed = parseFloat(val);
+        const parsed = parse(val);
 
         if (isNumber(parsed)) {
           return [...acc, val];

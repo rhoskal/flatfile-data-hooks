@@ -22,7 +22,7 @@ const FIELDS = {
   home_property_address: "homePropertyAddress",
   home_purchase_price: "homePurchasePrice",
   home_purchase_date: "homePurchaseDate",
-  home_appraised_date: "homeAppraisedDate",
+  home_appraised_value: "homeAppraisedValue",
   loan_mortgage_ins_premium: "loanMortgageInsPremium",
   loan_number: "loanNumber",
 };

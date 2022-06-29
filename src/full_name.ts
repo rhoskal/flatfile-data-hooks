@@ -24,9 +24,8 @@ module.exports = ({ recordBatch, _session, _logger }) => {
 
         record
           .set("firstName", parts[0])
-          .addComment("firstName", "Full name was split")
           .set("lastName", parts.slice(1, parts.length).join(" ").trim())
-          .addComment("lastName", "Full name was split");
+          .addComment(["firstName", "lastName"], "Full name was split");
       }
     }
   });

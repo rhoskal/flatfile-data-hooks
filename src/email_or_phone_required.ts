@@ -19,9 +19,7 @@ module.exports = ({ recordBatch, _session, _logger }) => {
     const { email, phone } = record.value;
 
     if (isNil(email) && isNil(phone)) {
-      record
-        .addWarning("email", "Must have either phone or email")
-        .addWarning("phone", "Must have either phone or email");
+      record.addWarning(["email", "phone"], "Must have either phone or email");
     }
   });
 };

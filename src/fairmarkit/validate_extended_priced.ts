@@ -18,12 +18,20 @@ module.exports = ({ recordBatch, _session, _logger }) => {
   return recordBatch.records.map((record) => {
     const { quantity, unit_price, extended_price } = record.value;
 
-    if (isNotNil(quantity) && isNotNil(unit_price) && isNotNil(extended_price)) {
-      const calculatedExtendedPrice = parseFloat(unit_price) * parseFloat(quantity);
+    if (
+      isNotNil(quantity) &&
+      isNotNil(unit_price) &&
+      isNotNil(extended_price)
+    ) {
+      const calculatedExtendedPrice =
+        parseFloat(unit_price) * parseFloat(quantity);
 
       if (calculatedExtendedPrice !== parseFloat(extended_price)) {
-        record.addError("extended_price", "Extended price verification failed.")
+        record.addError(
+          "extended_price",
+          "Extended price verification failed.",
+        );
       }
     }
   });
-}
+};

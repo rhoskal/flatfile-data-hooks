@@ -16,14 +16,20 @@ const isNotNil = (val) => !isNil(val);
 
 const isSpecialString = (matchStr, val) => {
   return matchStr.toLowerCase() === val.trim().toLowerCase();
-}
+};
 
 module.exports = ({ recordBatch, _session, _logger }) => {
   return recordBatch.records.map((record) => {
     const { item_description } = record.value;
 
-    if (isNotNil(item_description) && isSpecialString("NULL", item_description)) {
-      record.addWarning("item_description", "Item descriptions are very helpful.");
+    if (
+      isNotNil(item_description) &&
+      isSpecialString("NULL", item_description)
+    ) {
+      record.addWarning(
+        "item_description",
+        "Item descriptions are very helpful.",
+      );
     }
   });
-}
+};

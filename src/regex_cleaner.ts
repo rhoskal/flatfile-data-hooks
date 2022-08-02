@@ -32,7 +32,7 @@ module.exports = async ({ recordBatch, session, logger }) => {
 
     if (isNotNil(someFieldName)) {
       record
-        .set("fieldName", cleaner(someFieldName))
+        .set("someFieldName", cleaner(someFieldName))
         .addComment("value cleaned using regex");
     }
   });

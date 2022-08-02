@@ -14,6 +14,12 @@ const isNil = (val) => val === null || val === undefined || val === "";
  */
 const isNotNil = (val) => !isNil(val);
 
+const fold =
+  (...fns) =>
+  (x) => {
+    return fns.map((f) => f(x));
+  };
+
 const maxLength = (field_name, len) => {
   return (record) => {
     const field = record.get(field_name);
@@ -22,7 +28,7 @@ const maxLength = (field_name, len) => {
       if (field.length > len) {
         return record.addError(
           field_name,
-          `Can not be more than ${len} characters.`,
+          `Can not be more than ${len} characters (DH).`,
         );
       }
     }
@@ -31,14 +37,14 @@ const maxLength = (field_name, len) => {
 
 module.exports = ({ recordBatch, _session, _logger }) => {
   return recordBatch.records.map((record) => {
-    maxLength("first_name", 20)(record);
-    maxLength("last_name", 50)(record);
-    maxLength("title", 10)(record);
-    maxLength("company_name", 60)(record);
-    maxLength("house_name_or_number", 60)(record);
-    maxLength("street_name", 55)(record);
-    maxLength("locality", 30)(record);
-
-    return record;
+    return fold(
+      maxLength("first_name", 20),
+      maxLength("last_name", 50),
+      maxLength("title", 10),
+      maxLength("company_name", 60),
+      maxLength("house_name_or_number", 60),
+      maxLength("street_name", 55),
+      maxLength("locality", 30),
+    )(record);
   });
 };

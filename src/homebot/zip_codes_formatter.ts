@@ -16,7 +16,7 @@ const isNotNil = (val) => !isNil(val);
 
 const isNumber = (val) => typeof val === "number";
 
-const pipe = (...args) => args.reduce((acc, el) => el(acc));
+const pipe = (...fns) => fns.reduce((acc, f) => f(acc));
 
 const clean = (val) => val.trim().replace(/\s/g, "");
 
